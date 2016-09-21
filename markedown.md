@@ -19,7 +19,14 @@
 >`....`<br/>
 >
 `语法：“*”+空格+序列名`
+
 ### 超链接
 [百度](http://www.baidu.com)<br/>
 [谷歌](http://www.google.com)<br/>
 `语法：[名字](href)`
+<<<<<<< HEAD
+=======
+### 图片
+![名人](http://www.bz55.com/uploads/allimg/120915/1-120915094151.jpg)
+![gif](http://s1.dwstatic.com/group1/M00/3C/DC/891efec09fd0b0e0d52df598b1284233.gif)<br/>
+`语法:![描述](href)`
