@@ -89,3 +89,41 @@ __小结：__
 * 合并某分支到当前分支：git merge <name>
 
 * 删除分支：git branch -d <name>
+#### 六、远程仓库
+1. 添加远程库
+首先，登陆GitHub，然后，在右上角找到“Create a new repo”按钮，创建一个新的仓库：
+
+![](http://www.liaoxuefeng.com/files/attachments/0013849084639042e9b7d8d927140dba47c13e76fe5f0d6000/0)
+
+在Repository name填入`learngit`，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库：
+
+![](http://www.liaoxuefeng.com/files/attachments/0013849084720379a3eae576b9f417da2add578c8612a2e000/0)
+
+现在，我们根据GitHub的提示，在本地的`learngit`仓库下运行命令：
+```
+$ git remote add origin git@github.com:michaelliao/learngit.git
+```
+添加后，远程库的名字就是`origin`，这是Git默认的叫法，也可以改成别的，但是`origin`这个名字一看就知道是远程库。
+
+把本地库的内容推送到远程，用`git push`命令，实际上是把当前分支`master`推送到远程。
+
+2. 从远程库克隆
+首先，登陆GitHub，创建一个新的仓库，名字叫`gitskills`：
+
+![](http://www.liaoxuefeng.com/files/attachments/0013849085474010fec165e9c7449eea4417512c2b64bc9000/0)
+
+我们勾选`Initialize this repository with a README`，这样`GitHub`会自动为我们创建一个`README.md`文件。创建完毕后，可以看到`README.md`文件：
+![](http://www.liaoxuefeng.com/files/attachments/0013849085607106c2391754c544772830983d189bad807000/0)
+
+现在，远程库已经准备好了，下一步是用命令`git clone`克隆一个本地库：
+```
+$ git clone git@github.com:michaelliao/gitskills.git
+Cloning into 'gitskills'...
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (3/3), done.
+
+$ cd gitskills
+$ ls
+README.md
+```
