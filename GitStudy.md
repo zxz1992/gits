@@ -14,14 +14,7 @@ sudo apt-get install git
   $ git config --global user.name "Your Name"
   $ git config --global user.email "email@example.com"
   ```
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> git3
-=======
-
->>>>>>> git4
 #### 二、初始化git仓库
 创建一个版本库非常简单，首先，选择一个合适的地方，创建一个空目录：
 ```
@@ -53,7 +46,7 @@ $ git commit -m "wrote a readme file"
  1 file changed, 2 insertions(+)
  create mode 100644 readme.txt
  ```
- 
+
 #### 四、版本切换
 在Git中，总是有后悔药可以吃的。当你用`$ git reset --hard HEAD^`回退到某一版本时，再想恢复到之前的版本，就必须找到这一版本的`commit id`。Git提供了一个命令`git reflog`用来记录你的每一次命令：
 ```
@@ -64,3 +57,35 @@ ea34578 HEAD@{2}: commit: add distributed
 cb926e7 HEAD@{3}: commit (initial): wrote a readme file
 ```
 `HEAD`指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令`git reset --hard commit_id`。
+
+
+#### 五、创建合并分支
+在版本回退里，你已经知道，每次提交，`Git`都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在`Git`里，这个分支叫主分支，即`master`分支。`HEAD`严格来说不是指向提交，而是指向`master`，`master`才是指向提交的，所以，`HEAD`指向的就是当前分支。
+
+一开始的时候，`master`分支是一条线，`Git`用`master`指向最新的提交，再用`HEAD`指向`master`，就能确定当前分支，以及当前分支的提交点：
+![](http://www.liaoxuefeng.com/files/attachments/0013849087937492135fbf4bbd24dfcbc18349a8a59d36d000/0)
+
+当我们创建新的分支，例如`dev`时，`Git`新建了一个指针叫`dev`，指向`master`相同的提交，再把`HEAD`指向`dev`，就表示当前分支在`dev`上：
+![](http://www.liaoxuefeng.com/files/attachments/001384908811773187a597e2d844eefb11f5cf5d56135ca000/0)
+
+你看，`Git`创建一个分支很快，因为除了增加一个`dev`指针，改改HEAD的指向，工作区的文件都没有任何变化！
+
+不过，从现在开始，对工作区的修改和提交就是针对`dev`分支了，比如新提交一次后，`dev`指针往前移动一步，而`master`指针不变：
+![](http://www.liaoxuefeng.com/files/attachments/0013849088235627813efe7649b4f008900e5365bb72323000/0)
+
+假如我们在`dev`上的工作完成了，就可以把`dev`合并到`master`上。`Git`怎么合并呢？最简单的方法，就是直接把`master`指向`dev`的当前提交，就完成了合并：
+![](http://www.liaoxuefeng.com/files/attachments/00138490883510324231a837e5d4aee844d3e4692ba50f5000/0)
+
+__小结：__
+
+* 查看分支：git branch
+
+* 创建分支：git branch <name>
+
+* 切换分支：git checkout <name>
+
+* 创建+切换分支：git checkout -b <name>
+
+* 合并某分支到当前分支：git merge <name>
+
+* 删除分支：git branch -d <name>
