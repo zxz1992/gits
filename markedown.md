@@ -19,4 +19,7 @@
 >`....`<br/>
 >
 `语法：“*”+空格+序列名`
->>>>>>> md1
+### 超链接
+[百度](http://www.baidu.com)<br/>
+[谷歌](http://www.google.com)<br/>
+`语法：[名字](href)`
