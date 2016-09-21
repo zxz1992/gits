@@ -15,9 +15,13 @@ sudo apt-get install git
   $ git config --global user.email "email@example.com"
   ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> git3
+=======
+
+>>>>>>> git4
 #### 二、初始化git仓库
 创建一个版本库非常简单，首先，选择一个合适的地方，创建一个空目录：
 ```
@@ -49,3 +53,14 @@ $ git commit -m "wrote a readme file"
  1 file changed, 2 insertions(+)
  create mode 100644 readme.txt
  ```
+ 
+#### 四、版本切换
+在Git中，总是有后悔药可以吃的。当你用`$ git reset --hard HEAD^`回退到某一版本时，再想恢复到之前的版本，就必须找到这一版本的`commit id`。Git提供了一个命令`git reflog`用来记录你的每一次命令：
+```
+$ git reflog
+ea34578 HEAD@{0}: reset: moving to HEAD^
+3628164 HEAD@{1}: commit: append GPL
+ea34578 HEAD@{2}: commit: add distributed
+cb926e7 HEAD@{3}: commit (initial): wrote a readme file
+```
+`HEAD`指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令`git reset --hard commit_id`。
